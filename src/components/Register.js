@@ -13,7 +13,7 @@ const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('https://backend.kindtree-864736a4.australiaeast.azurecontainerapps.io/register', {
+      const response = await axios.post('https://ebiznes-back.bluerock-0d86c11e.eastus.azurecontainerapps.io/register', {
         username,
         email,
         password

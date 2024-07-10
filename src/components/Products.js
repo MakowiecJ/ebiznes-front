@@ -10,7 +10,7 @@ const Products = () => {
     const { addToCart } = useContext(CartContext);
 
     useEffect(() => {
-        axios.get('https://backend.kindtree-864736a4.australiaeast.azurecontainerapps.io/products')
+        axios.get('https://ebiznes-back.bluerock-0d86c11e.eastus.azurecontainerapps.io/products')
             .then(response => {
                 setProducts(response.data);
                 const initialQuantities = response.data.reduce((acc, product) => {
@@ -26,7 +26,7 @@ const Products = () => {
 
     const handleAddToCart = (product) => {
         const quantity = quantities[product.ID];
-        const url = `https://backend.kindtree-864736a4.australiaeast.azurecontainerapps.io/carts/1/products?productId=${product.ID}&quantity=${quantity}`;
+        const url = `https://ebiznes-back.bluerock-0d86c11e.eastus.azurecontainerapps.io/carts/1/products?productId=${product.ID}&quantity=${quantity}`;
         axios.post(url)
             .then(response => {
                 addToCart(product, quantity);

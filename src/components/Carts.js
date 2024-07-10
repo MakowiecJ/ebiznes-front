@@ -14,7 +14,7 @@ const Carts = () => {
     }, [cartId]);
 
     useEffect(() => {
-        axios.get(`https://backend.kindtree-864736a4.australiaeast.azurecontainerapps.io/carts/${cartId}`)
+        axios.get(`https://ebiznes-back.bluerock-0d86c11e.eastus.azurecontainerapps.io/carts/${cartId}`)
             .then(response => {
                 setCartDetails(response.data);
             })
@@ -24,7 +24,7 @@ const Carts = () => {
     }, [cartId]);
 
     const handlePayment = () => {
-        axios.post(`https://backend.kindtree-864736a4.australiaeast.azurecontainerapps.io/carts/${cartId}/pay`)
+        axios.post(`https://ebiznes-back.bluerock-0d86c11e.eastus.azurecontainerapps.io/carts/${cartId}/pay`)
             .then(response => {
                 console.log('Payment successful!', response);
                 setPaymentSuccess(true);
@@ -38,7 +38,7 @@ const Carts = () => {
 
 
     const fetchCartDetails = () => {
-        axios.get(`https://backend.kindtree-864736a4.australiaeast.azurecontainerapps.io/carts/${cartId}`)
+        axios.get(`https://ebiznes-back.bluerock-0d86c11e.eastus.azurecontainerapps.io/carts/${cartId}`)
             .then(response => {
                 setCartDetails(response.data);
             })

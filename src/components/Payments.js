@@ -10,7 +10,7 @@ const Payments = () => {
     }, []);
 
     const fetchPurchaseHistory = () => {
-        axios.get('https://backend.kindtree-864736a4.australiaeast.azurecontainerapps.io/payments')
+        axios.get('https://ebiznes-back.bluerock-0d86c11e.eastus.azurecontainerapps.io/payments')
             .then(response => {
                 setPurchaseHistory(response.data);
             })
