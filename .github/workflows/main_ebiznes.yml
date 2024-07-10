@@ -60,7 +60,7 @@ jobs:
           --header "Content-Type: application/json" \
           --data '{
             "personalizations": [{
-              "to": [{"email": "jakub.makowiec@student.uj.edu.pl"}]
+              "to": [{"email": "kubamakowiec@gmail.com"}]
             }],
             "from": {"email": "kubamakowiec@gmail.com"},
             "subject": "Deployment Status",
