@@ -49,3 +49,23 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_1b938afab8b84da6b0443ba19883b665 }}
         images: 'ebiznescont.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_b8a28a7f9e454411a4f914916808fca1 }}/ebiznes_front:${{ github.sha }}'
+    
+    - name: Send deployment email
+      env:
+        SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+      run: |
+        curl --request POST \
+          --url https://api.sendgrid.com/v3/mail/send \
+          --header "Authorization: Bearer $SENDGRID_API_KEY" \
+          --header "Content-Type: application/json" \
+          --data '{
+            "personalizations": [{
+              "to": [{"email": "jakub.makowiec@student.uj.edu.pl"}]
+            }],
+            "from": {"email": "kubamakowiec@gmail.com"},
+            "subject": "Deployment Status",
+            "content": [{
+              "type": "text/plain",
+              "value": "The frontend application has been successfully deployed to Azure Container Apps."
+            }]
+          }'
